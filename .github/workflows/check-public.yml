@@ -1,0 +1,28 @@
+name: Verify published website
+on:
+  push:
+    branches: [main]
+    paths: ['tests/live_smoke.py', '.github/workflows/check-public.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  public-site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+      - name: Check live files and interactive pages
+        run: python tests/live_smoke.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dropzone-live-qa
+          path: qa-live/
+          if-no-files-found: ignore
