@@ -1,0 +1,35 @@
+name: Prepare verified layout assets
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - tools/build_assets.py
+      - .github/workflows/prepare-assets.yml
+permissions:
+  contents: write
+concurrency:
+  group: dropzone-assets
+  cancel-in-progress: false
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned image tools
+        run: python -m pip install PyMuPDF==1.26.4 Pillow==11.3.0
+      - name: Verify source and export layouts
+        run: python tools/build_assets.py
+      - name: Preserve generated assets in repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/layouts assets/build-info.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Build verified Event Companion layout assets"
+          git pull --rebase origin main
+          git push origin HEAD:main
