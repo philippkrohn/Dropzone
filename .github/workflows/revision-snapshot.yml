@@ -1,0 +1,20 @@
+name: Revision source snapshot
+on:
+  push:
+    branches: ['update/custodes-attached-v1.1']
+    paths: ['.github/workflows/revision-snapshot.yml']
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export the tracked source only
+        run: git archive --format=zip --output=dropzone-source.zip HEAD
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dropzone-revision-source
+          path: dropzone-source.zip
+          retention-days: 7
