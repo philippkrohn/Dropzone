@@ -1,0 +1,24 @@
++++++++++++++++++++++++++++++++++++++++++++++++
++ FACTION KEYWORD: Imperium - Adeptus Custodes
++ DETACHMENT: Auric Champions (Assemblage of Might)
++ FORCE DISPOSITION: Priority Assets
++ TOTAL ARMY POINTS: 1040pts
++
++ WARLORD: Char1: Shield-Captain on Dawneagle Jetbike
++ NUMBER OF UNITS: 6
++ SECONDARY: - Assassination: 2 Characters
++++++++++++++++++++++++++++++++++++++++++++++++
+
+Char1: 1x Shield-Captain on Dawneagle Jetbike (140 pts): Warlord, Interceptor lance, Salvo launcher
+Leading Vertus Praetors[1]
+Char2: 1x Shield-Captain on Dawneagle Jetbike (140 pts): Interceptor lance, Salvo launcher
+Leading Vertus Praetors[2]
+
+3x Allarus Custodians (165 pts): 3 with Balistus grenade launcher, Guardian Spear
+3x Allarus Custodians (165 pts): 3 with Balistus grenade launcher, Guardian Spear
+3x Vertus Praetors (215 pts): 3 with Interceptor lance, Salvo launcher
+  Attached to Shield-Captain on Dawneagle Jetbike[1]
+3x Vertus Praetors (215 pts): 3 with Interceptor lance, Salvo launcher
+  Attached to Shield-Captain on Dawneagle Jetbike[2]
+
+Created with newrecruit.eu v35.82

@@ -10,7 +10,7 @@ BASE = 'https://philippkrohn.github.io/Dropzone/'
 OUT = ROOT / 'qa-live'
 OUT.mkdir(exist_ok=True)
 report = {'url': BASE, 'files': [], 'scenarios': [], 'errors': []}
-files = ['index.html', 'app.mjs', 'core.mjs', 'style.css', 'sw.js', 'data/cases.json', 'data/missions.json', 'data/reference.json', 'data/chapters.json', 'data/words.json']
+files = ['index.html', 'app.mjs', 'core.mjs', 'style.css', 'sw.js', 'data/cases.json', 'data/missions.json', 'data/reference.json', 'data/chapters.json', 'data/words.json', 'data/custodes-roster-2026-09-18.txt']
 for attempt in range(12):
     try:
         report['files'] = []
@@ -35,6 +35,8 @@ with sync_playwright() as p:
         r = page.goto(BASE + '?case=' + code + '&role=defender&turn=first', wait_until='domcontentloaded')
         assert r.ok
         expect(page.locator('#app')).to_have_attribute('data-case', code)
+        expect(page.locator('#roster-update')).to_contain_text('Web v1.1')
+        assert 'K1 und K2 starten einzeln' not in page.locator('#app').inner_text()
         page.locator('#app .map img').scroll_into_view_if_needed()
         page.locator('#app .map img').evaluate('(i)=>i.decode()')
         assert page.locator('#app .marker').count() == 8
