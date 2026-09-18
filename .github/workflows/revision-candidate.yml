@@ -1,0 +1,71 @@
+name: Validate Custodes revision candidate
+on:
+  push:
+    branches: ['update/custodes-attached-v1.1']
+    paths: ['.github/workflows/revision-candidate.yml', 'tools/revise*_1_1.py', 'tools/test_roster_upgrade.py']
+permissions:
+  contents: write
+concurrency:
+  group: dropzone-roster-candidate
+  cancel-in-progress: true
+jobs:
+  candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply only the requested roster revision
+        run: |
+          python tools/revise_custodes_1_1.py
+          python tools/revise_ui_1_1.py
+          python tools/revise_checks_1_1.py
+          python tests/verify_content.py
+          node --check app.mjs
+          node --check sw.js
+          node --test tests/core.test.mjs
+      - name: Prepare browser checks
+        run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+      - name: Exercise complete candidate and old offline upgrade
+        run: |
+          python -m http.server 8765 --directory .. > /tmp/dropzone-http.log 2>&1 &
+          SERVER=$!
+          trap 'kill $SERVER' EXIT
+          python tests/browser_smoke.py
+          python tools/test_roster_upgrade.py
+      - name: Commit tested website files to candidate branch only
+        run: |
+          python - <<'PY'
+          import subprocess,json
+          from pathlib import Path
+          files=['BEDIENUNG.md','index.html','app.mjs','sw.js','style.css','data/missions.json','data/reference.json','data/custodes-roster-2026-09-18.txt','data/chapters.json','data/cases.json','tests/browser_smoke.py','tests/verify_content.py','tests/live_smoke.py','tests/content-sha256.json']
+          assert all(not p.endswith('.pdf') for p in files)
+          subprocess.run(['git','add','--',*files],check=True)
+          staged=subprocess.check_output(['git','diff','--cached','--name-only'],text=True).splitlines()
+          assert set(staged)==set(files),(staged,files)
+          subprocess.run(['git','config','user.name','github-actions[bot]'],check=True)
+          subprocess.run(['git','config','user.email','41898282+github-actions[bot]@users.noreply.github.com'],check=True)
+          subprocess.run(['git','commit','-m','Apply tested website v1.1: attached Captains and spear Allarus'],check=True)
+          subprocess.run(['git','push','origin','HEAD:update/custodes-attached-v1.1'],check=True)
+          output=Path('qa-artifacts')
+          manifest={'commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'files':{p:subprocess.check_output(['git','rev-parse','HEAD:'+p],text=True).strip() for p in files}}
+          (output/'release-manifest.json').write_text(json.dumps(manifest,indent=2))
+          subprocess.run(['git','archive','--format=zip','--output=qa-artifacts/candidate-source.zip','HEAD'],check=True)
+          print(json.dumps(manifest,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dropzone-roster-candidate
+          path: qa-artifacts/
+          if-no-files-found: ignore
+          retention-days: 7
