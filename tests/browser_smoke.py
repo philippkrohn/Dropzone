@@ -1,5 +1,6 @@
 """Real-browser functional checks. Run against a local HTTP server or Pages."""
 import argparse
+import os
 import json
 import sys
 import traceback
@@ -15,7 +16,7 @@ cases = json.loads((ROOT / 'data/cases.json').read_text())
 missions = json.loads((ROOT / 'data/missions.json').read_text())
 report = {'base': args.base, 'checks': [], 'errors': []}
 with sync_playwright() as p:
-    browser = p.chromium.launch()
+    browser = p.chromium.launch(executable_path=os.environ.get("CHROMIUM_PATH"))
     context = browser.new_context(viewport={'width': 1440, 'height': 1000}, reduced_motion='reduce')
     page = context.new_page()
     page.on('pageerror', lambda e: report['errors'].append(str(e)))
@@ -29,6 +30,9 @@ with sync_playwright() as p:
                 goto(f'?case={c["code"]}&role={role}&turn=unknown')
                 expect(page.locator('#app')).to_have_attribute('data-case', c['code'])
                 expect(page.locator('.mission-header h2')).to_have_text(missions[c['key']]['name'])
+                expect(page.locator('#roster-update')).to_contain_text('Web v1.1')
+                expect(page.locator('.legend-description')).to_contain_text('angeschlossene Vierer-Bike-Einheit')
+                assert 'K1 und K2 starten einzeln' not in page.locator('#app').inner_text()
                 img = page.locator('#app .map img')
                 img.scroll_into_view_if_needed()
                 img.evaluate('(i)=>i.decode()')
@@ -48,6 +52,10 @@ with sync_playwright() as p:
             for r in missions[c['key']]['rounds']:
                 text = page.locator('[data-round="' + str(r['battleRound']) + '"]').inner_text()
                 assert r['norman'] in text and r['philipp'] in text
+        goto('?case=A01&view=rules')
+        assert page.locator('.unit-card.philipp').count() == 4
+        expect(page.locator('.unit-card.philipp').nth(2)).to_contain_text('355 Punkte')
+        expect(page.locator('.unit-card.philipp').first).to_contain_text('3 × Guardian Spear')
         goto('?game=3&opp=disruption')
         assert page.get_attribute('#app', 'data-case') == ''
         assert page.input_value('#own-choice') == ''
@@ -119,7 +127,7 @@ with sync_playwright() as p:
         page.wait_for_function('window.__printed===true')
         assert page.locator('#print-area .round-card').count() == 5
         page.emulate_media(media='print')
-        page.pdf(path=str(OUT / 'print-sample.pdf'), format='A4', print_background=True)
+        # No PDF is regenerated for the website-only roster revision.
         page.emulate_media(media='screen')
         page.locator('#offline').click()
         expect(page.locator('#offline-status')).to_contain_text('Offlinepaket gespeichert', timeout=90000)
