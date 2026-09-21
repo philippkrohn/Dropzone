@@ -1,0 +1,30 @@
+name: Quiz integration snapshot
+on:
+  push:
+    branches: ['feature/faction-quizzes']
+    paths: ['.github/workflows/quiz-snapshot.yml']
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export current source and published PK entry point
+        run: |
+          mkdir -p quiz-snapshot
+          git archive --format=zip --output=quiz-snapshot/dropzone-current.zip HEAD
+          python - <<'PY'
+          import urllib.request, json, hashlib
+          from pathlib import Path
+          url='https://6aaaf71c159714ef2f9ac9f5--pkstratagems.netlify.app/'
+          data=urllib.request.urlopen(url,timeout=30).read()
+          Path('quiz-snapshot/pk-current.html').write_bytes(data)
+          print(json.dumps({'url':url,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()}))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: quiz-source-snapshot
+          path: quiz-snapshot/
+          retention-days: 7
