@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "id": "imperial-agents-imperialis-fleet-grundlagen",
+  "title": "Imperialis Fleet: Grundlagen & Stratagems",
+  "faction": "Imperial Agents",
+  "detachment": "Imperialis Fleet",
+  "difficulty": "medium",
+  "questionCount": 8,
+  "estimatedMinutes": 8,
+  "description": "Acht Entscheidungen zu Aufwertungen, Transporten, Stratagems und einer typischen Sanctifier-Regelfalle. Keine Kenntnis einer bestimmten Spielerliste nötig.",
+  "tags": [
+    "Stratagems",
+    "Aufwertungen",
+    "Einheitenregeln"
+  ],
+  "intro": "Acht praktische Regelfragen zur Imperialis Fleet. Alle Angaben, die du für ein Beispiel brauchst, stehen in der Frage. Es geht um das Detachment und seine Regeln, nicht um eine bestimmte Armeeliste.",
+  "revision": "1.0.0",
+  "createdAt": "2026-09-21",
+  "edition": 11,
+  "rulesBasis": "11. Edition · Regelbasis des bereitgestellten Quiz / Faction Pack v1.1. Quizfassung 21.09.2026.",
+  "sourceNote": "Lernhilfe auf Basis der bereitgestellten Unterlagen und des zuvor erarbeiteten Quiz. Die technische Veröffentlichung ist keine erneute Prüfung aller inzwischen erschienenen FAQs. Aktueller offizieller Regeltext und Evententscheid haben Vorrang.",
+  "sources": [
+    {
+      "id": "ia-update",
+      "title": "Games Workshop · Imperial Agents Faction Pack v1.1",
+      "locator": "Bereitgestelltes Dokument, S.10: Imperial Rhino, Transport Section; S.11: Combat Landers / angeschlossene Characters."
+    },
+    {
+      "id": "ia-sanctifiers",
+      "title": "Games Workshop · Imperial Agents Faction Pack v1.1",
+      "locator": "Bereitgestelltes Dokument, S.8–9: Sanctifiers, Ministorum Sermon, Salvationist Medikit."
+    },
+    {
+      "id": "fleet",
+      "title": "PK Stratagems · bestehende Imperialis-Fleet-Regelzusammenfassung",
+      "locator": "Unveränderter Bestand der veröffentlichten Referenz, abgerufen 21.09.2026; ergänzt durch das zuvor erarbeitete Quiz. Keine erneute Errata-Prüfung.",
+      "url": "https://pkstratagems.netlify.app/"
+    }
+  ],
+  "questions": [
+    {
+      "id": "rhino",
+      "type": "single-choice",
+      "topic": "Transport & Einheiten",
+      "prompt": "Zehn Imperial Navy Breachers und eine angeschlossene Rogue Trader Entourage mit vier Modellen sollen bei voller Stärke gemeinsam ins Imperial Rhino. Passt die Einheit hinein?",
+      "options": [
+        {
+          "id": "option-1",
+          "text": "Ja. Ein angeschlossener Trupp zählt im Transport als ein Modell."
+        },
+        {
+          "id": "option-2",
+          "text": "Nein. 14 Modelle überschreiten die Transportkapazität von zwölf passenden Infanteriemodellen."
+        },
+        {
+          "id": "option-3",
+          "text": "Ja. Modelle einer Character-Einheit benötigen keinen Transportplatz."
+        },
+        {
+          "id": "option-4",
+          "text": "Nein. Das Rhino kann grundsätzlich keine Agents-of-the-Imperium-Infanterie transportieren."
+        }
+      ],
+      "correctOptionId": "option-2",
+      "explanation": "Zehn Breachers plus vier Entourage-Modelle ergeben 14 Modelle. Das bereitgestellte Rhino-Update erlaubt zwölf AGENTS OF THE IMPERIUM INFANTRY-Modelle; TERMINATOR- und OFFICIO ASSASSINORUM-Modelle sind ausgeschlossen. Der Anschluss reduziert die Modellzahl nicht.",
+      "sourceIds": [
+        "ia-update"
+      ]
+    },
+    {
+      "id": "combat-landers",
+      "type": "single-choice",
+      "topic": "Aufwertung",
+      "prompt": "Ein Breacher-Trupp erhält durch Combat Landers Deep Strike. Ein Character ohne eigenes Deep Strike wird dieser Einheit angeschlossen. Was gilt laut dem bereitgestellten FAQ?",
+      "options": [
+        {
+          "id": "option-1",
+          "text": "Der Character verhindert den gemeinsamen Deep Strike."
+        },
+        {
+          "id": "option-2",
+          "text": "Nur die Breachers kommen aus der Reserve; der Character bleibt automatisch auf dem Tisch."
+        },
+        {
+          "id": "option-3",
+          "text": "Auch der angeschlossene Character erhält die durch die Aufwertung verliehene Fähigkeit."
+        },
+        {
+          "id": "option-4",
+          "text": "Der Character erhält stattdessen automatisch Infiltrators."
+        }
+      ],
+      "correctOptionId": "option-3",
+      "explanation": "Das FAQ auf Seite 11 bestätigt ausdrücklich: Ein angeschlossener Character erhält ebenfalls die Fähigkeit, die seiner Einheit durch Combat Landers beziehungsweise Clandestine Operation verliehen wurde. Bei Combat Landers ist dies Deep Strike.",
+      "sourceIds": [
+        "ia-update"
+      ]
+    },
+    {
+      "id": "at-all-costs",
+      "type": "single-choice",
+      "topic": "Detachment-Regel",
+      "prompt": "Welche Aussage beschreibt die Detachment-Regel At All Costs?",
+      "options": [
+        {
+          "id": "option-1",
+          "text": "Zu Beginn der eigenen Befehlsphase wird zwischen Eliminate gegen eine ausgewählte feindliche Einheit und Acquire an einem ausgewählten Missionsziel gewählt."
+        },
+        {
+          "id": "option-2",
+          "text": "Alle Voidfarers erhalten dauerhaft Scouts 6″."
+        },
+        {
+          "id": "option-3",
+          "text": "Einmal pro Schlacht darf die gesamte Armee nach dem Vorrücken angreifen."
+        },
+        {
+          "id": "option-4",
+          "text": "Jede Agenten-Einheit wählt nach dem Schießen unabhängig einen weiteren Modus."
+        }
+      ],
+      "correctOptionId": "option-1",
+      "explanation": "At All Costs bietet einen offensiven Modus gegen eine ausgewählte Feindeinheit und einen missionsbezogenen Modus an einem ausgewählten Ziel. Die Entscheidung fällt zu Beginn der eigenen Befehlsphase; es ist keine beliebig nachträglich wechselbare Wahl für jeden einzelnen Trupp.",
+      "sourceIds": [
+        "fleet"
+      ]
+    },
+    {
+      "id": "close-quarters",
+      "type": "single-choice",
+      "topic": "Stratagem · Angriff",
+      "prompt": "Welche Beschreibung passt zu Close-quarters Barrage?",
+      "options": [
+        {
+          "id": "option-1",
+          "text": "2 CP: Eine Character-Einheit erhält in der Nahkampfphase Fight First."
+        },
+        {
+          "id": "option-2",
+          "text": "1 CP: Eine Voidfarers-Einheit erhält für ihre Nahkampfattacken +1 Schaden."
+        },
+        {
+          "id": "option-3",
+          "text": "1 CP: Jede beliebige verbündete Einheit erhält für die gesamte Schlacht +1 Stärke."
+        },
+        {
+          "id": "option-4",
+          "text": "1 CP: In der eigenen Schussphase verbessern sich bei einer geeigneten Voidfarers-Einheit Fernkampfattacken auf Ziele innerhalb 12″ um +1 Stärke und eine Stufe AP."
+        }
+      ],
+      "correctOptionId": "option-4",
+      "explanation": "Close-quarters Barrage verbessert das Nahbereichsfeuer einer VOIDFARERS-Einheit, die in dieser Phase noch nicht zum Schießen gewählt wurde. Für die betreffenden Fernkampfattacken innerhalb 12″ gelten bis Phasenende +1 Stärke und um eins verbesserte AP. Keyword, Zeitpunkt und Entfernung bleiben entscheidend.",
+      "sourceIds": [
+        "fleet"
+      ]
+    },
+    {
+      "id": "violent-acquisition",
+      "type": "single-choice",
+      "topic": "Stratagem · Missionsziel",
+      "prompt": "Violent Acquisition soll einen Angriff auf ein Missionsziel unterstützen. Welche Kombination ist richtig?",
+      "options": [
+        {
+          "id": "option-1",
+          "text": "1 CP; die eigene Einheit muss am Heimziel stehen; alle Attacken treffen automatisch."
+        },
+        {
+          "id": "option-2",
+          "text": "2 CP; eigene Schussphase oder Nahkampfphase; Attacken gegen eine gegnerische Einheit in Missionszielreichweite erhalten Sustained Hits 1, Lance und Ignores Cover."
+        },
+        {
+          "id": "option-3",
+          "text": "2 CP; gegnerische Bewegungsphase; eine Einheit darf sechs Zoll vorrücken und sofort schießen."
+        },
+        {
+          "id": "option-4",
+          "text": "1 CP; eigene Befehlsphase; alle Agents bekommen dauerhaft +1 Objective Control."
+        }
+      ],
+      "correctOptionId": "option-2",
+      "explanation": "Entscheidend ist die Position der gegnerischen Zieleinheit am Missionsziel. Die geeignete eigene Agents-Einheit darf in der jeweiligen Phase noch nicht zum Schießen beziehungsweise Kämpfen gewählt worden sein. Der Effekt verleiht den entsprechenden Attacken Sustained Hits 1, Lance und Ignores Cover; nicht jede dieser Fähigkeiten wirkt bei jeder Attackenart.",
+      "sourceIds": [
+        "fleet"
+      ]
+    },
+    {
+      "id": "displacer-field",
+      "type": "single-choice",
+      "topic": "Stratagem · Schutz & Bewegung",
+      "prompt": "Du setzt Displacer Field für eine als Beschussziel gewählte Agents-Character-Einheit ein. Welche Reihenfolge und Wirkung sind richtig?",
+      "options": [
+        {
+          "id": "option-1",
+          "text": "Die Einheit bewegt sich vor den gegnerischen Trefferwürfen automatisch zwölf Zoll."
+        },
+        {
+          "id": "option-2",
+          "text": "Nur das Character-Modell erhält bis Schlachtende Feel No Pain 4+."
+        },
+        {
+          "id": "option-3",
+          "text": "1 CP: Nach gegnerischer Zielwahl erhält die Einheit 4+ Rettung bis Phasenende; erst nach den Attacken darf sie, sofern ungebunden, bis 6″ normal bewegen und gilt dabei als Fly."
+        },
+        {
+          "id": "option-4",
+          "text": "2 CP: Die Einheit wird sofort vollständig in Strategische Reserve versetzt."
+        }
+      ],
+      "correctOptionId": "option-3",
+      "explanation": "Displacer Field wird in der gegnerischen Schussphase nach der Zielwahl eingesetzt. Der Rettungswurf hilft gegen den folgenden Beschuss. Die zusätzliche Bewegung erfolgt erst, nachdem die angreifende Einheit ihre Attacken abgehandelt hat, und setzt voraus, dass die eigene Einheit nicht in Engagement Range steht. OFFICIO ASSASSINORUM-Einheiten sind als Ziel ausgeschlossen.",
+      "sourceIds": [
+        "fleet"
+      ]
+    },
+    {
+      "id": "selfless-bodyguard",
+      "type": "single-choice",
+      "topic": "Stratagem · Precision",
+      "prompt": "Wofür wird Selfless Bodyguard eingesetzt?",
+      "options": [
+        {
+          "id": "option-1",
+          "text": "Für 1 CP kann eine per Precision einem Character zugeteilte Attacke auf 2+ einem vorhandenen Bodyguard-Modell zugeteilt werden."
+        },
+        {
+          "id": "option-2",
+          "text": "Für 1 CP kehrt ein vollständig zerstörter Bodyguard-Trupp zurück."
+        },
+        {
+          "id": "option-3",
+          "text": "Ein Character darf damit ohne jede weitere Voraussetzung einen zweiten Bodyguard-Trupp erhalten."
+        },
+        {
+          "id": "option-4",
+          "text": "Für 2 CP werden sämtliche gegnerischen Precision-Waffen bis Schlachtende ausgeschaltet."
+        }
+      ],
+      "correctOptionId": "option-1",
+      "explanation": "Selfless Bodyguard schützt einen Character, indem eine geeignete Precision-Attacke auf 2+ auf ein Bodyguard-Modell umgeleitet wird. Es ist kein garantierter Schutz und setzt ein vorhandenes Bodyguard-Modell voraus. Wie bei jedem Stratagem müssen auch allgemeine Einsatzbeschränkungen eingehalten werden.",
+      "sourceIds": [
+        "fleet"
+      ]
+    },
+    {
+      "id": "sanctifiers",
+      "type": "single-choice",
+      "topic": "Einheitenregel · Voraussetzung",
+      "prompt": "Ein Sanctifier-Trupp enthält seine zwei Missionaries, aber keinen Ministorum Priest. Erhält er den Nahkampfbonus von Ministorum Sermon?",
+      "options": [
+        {
+          "id": "option-1",
+          "text": "Ja, weil zwei Missionaries zusammen als ein Ministorum Priest zählen."
+        },
+        {
+          "id": "option-2",
+          "text": "Ja, aber ausschließlich in der ersten Schlachtrunde."
+        },
+        {
+          "id": "option-3",
+          "text": "Ja, solange der Salvationist noch lebt."
+        },
+        {
+          "id": "option-4",
+          "text": "Nein. Die Fähigkeit verlangt ausdrücklich einen Ministorum Priest in der Einheit."
+        }
+      ],
+      "correctOptionId": "option-4",
+      "explanation": "Missionary und Ministorum Priest sind nicht austauschbare Bezeichnungen. Ministorum Sermon verlangt ausdrücklich einen Ministorum Priest. Die beiden normalen Missionaries des Sanctifier-Trupps erfüllen diese Voraussetzung nicht.",
+      "sourceIds": [
+        "ia-sanctifiers"
+      ]
+    }
+  ]
+}

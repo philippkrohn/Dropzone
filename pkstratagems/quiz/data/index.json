@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "quizzes": [
+    {
+      "id": "imperial-agents-imperialis-fleet-grundlagen",
+      "title": "Imperialis Fleet: Grundlagen & Stratagems",
+      "faction": "Imperial Agents",
+      "detachment": "Imperialis Fleet",
+      "difficulty": "medium",
+      "questionCount": 8,
+      "estimatedMinutes": 8,
+      "description": "Acht Entscheidungen zu Aufwertungen, Transporten, Stratagems und einer typischen Sanctifier-Regelfalle. Keine Kenntnis einer bestimmten Spielerliste nötig.",
+      "tags": [
+        "Stratagems",
+        "Aufwertungen",
+        "Einheitenregeln"
+      ],
+      "file": "imperial-agents-imperialis-fleet-grundlagen.json"
+    }
+  ]
+}

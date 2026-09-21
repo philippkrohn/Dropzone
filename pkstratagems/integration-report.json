@@ -1,0 +1,9 @@
+{
+  "previousDeploy": "6aaaf71c159714ef2f9ac9f5",
+  "previousUrl": "https://6aaaf71c159714ef2f9ac9f5--pkstratagems.netlify.app",
+  "previousRootSHA256": "2d9bc0e99c499dd5ef5fcdae1c154e08db1738aa749c26e50c77ff8a23cf024b",
+  "newRootSHA256": "63f0cf70824be2dd82b668b594a90a4c9f984d58a778e5a076c174887f396f58",
+  "legacyScriptUnchanged": true,
+  "legacyFallback": "https://6aaaf71c159714ef2f9ac9f5--pkstratagems.netlify.app/:splat",
+  "newRoute": "/quiz/"
+}
