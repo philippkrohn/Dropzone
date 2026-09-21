@@ -1,0 +1,18 @@
+{
+  "site": "https://pkstratagems.netlify.app/",
+  "quizUrl": "https://pkstratagems.netlify.app/quiz/",
+  "siteId": "a9b698e5-0f1d-4f39-b84d-ce52c91179a7",
+  "productionDeploy": "6ab1939ae68f1a942996df56",
+  "previousProductionDeploy": "6aaaf71c159714ef2f9ac9f5",
+  "previewDeploy": "6ab193834adb572753554505",
+  "sourceBranch": "feature/faction-quizzes",
+  "sourceDirectory": "pkstratagems",
+  "releaseRun": "https://github.com/philippkrohn/Dropzone/actions/runs/35650956133",
+  "date": "2026-09-21",
+  "status": "published-and-verified",
+  "quizCount": 1,
+  "questions": 8,
+  "logicTestsPassed": 53,
+  "verified": ["preview and production browser checks", "quiz scoring and error-only retry", "local progress recovery", "catalog filters", "320/390/768/1280 pixel widths", "unchanged original Stratagem app script", "existing Doubles route"],
+  "important": "The non-forced legacy fallback targets the previous immutable Netlify deploy. Preserve it until all legacy files have been migrated. Dropzone main and the original PDF are unchanged. Quiz answers remain local to the browser; no cloud sync or new quiz offline guarantee."
+}
