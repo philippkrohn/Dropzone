@@ -60,7 +60,7 @@ jobs:
       - name: Authorize, preview, test and publish
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: python pkstratagems/tools/release_v2.py
+        run: python pkstratagems/tools/publish_training_final.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
