@@ -1,0 +1,78 @@
+name: Publish verified PK training
+on:
+  push:
+    branches: ['update/training-catalog-2026-09']
+    paths: ['.github/workflows/training-publish.yml']
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: pk-training-release
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Assemble existing tested source and final typography
+        run: |
+          python pkstratagems/tools/polish_training.py
+          python pkstratagems/tools/assemble_v2.py
+          python pkstratagems/tests/catalog_v2.py
+          node --test pkstratagems/tests/training.test.mjs
+      - name: Prepare browser and ephemeral authorization tools
+        run: |
+          python -m pip install playwright==1.55.0 cryptography==46.0.1
+          python -m playwright install --with-deps chromium
+      - name: Check full local browser flow
+        run: |
+          python -m http.server 8765 --directory pkstratagems/netlify-site/public > /tmp/pk-http.log 2>&1 &
+          SERVER=$!
+          trap 'kill $SERVER' EXIT
+          python pkstratagems/tests/browser_v2.py --base http://127.0.0.1:8765/
+      - name: Save tested typography and audit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add pkstratagems/quiz/data/bank.json pkstratagems/quiz/data/authored.json pkstratagems/quiz/question-audit.json pkstratagems/library/browser-data.js pkstratagems/index.html pkstratagems/integration-report-v2.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Finalize tactical typography and question coverage report'
+            git push origin HEAD:update/training-catalog-2026-09
+          fi
+      - name: Create new run-bound authorization key
+        run: python pkstratagems/tools/prepare_key.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pk-training-public-key
+          path: pkstratagems/release-public/
+          retention-days: 1
+      - name: Publish only after preview and baseline checks
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python pkstratagems/tools/release_v2.py
+      - name: Record verified deployment
+        run: |
+          cp pkstratagems/qa/release-report.json pkstratagems/DEPLOYMENT-v2.json
+          git add pkstratagems/DEPLOYMENT-v2.json
+          git commit -m 'Record verified PK training catalogue publication'
+          git pull --rebase origin update/training-catalog-2026-09
+          git push origin HEAD:update/training-catalog-2026-09
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pk-training-publication-qa
+          path: |
+            pkstratagems/qa/
+            pkstratagems/integration-report-v2.json
+            pkstratagems/quiz/question-audit.json
+          if-no-files-found: ignore
+          retention-days: 14
