@@ -1,0 +1,39 @@
+name: PK training inventory
+on:
+  push:
+    branches: ['update/training-catalog-2026-09']
+    paths: ['.github/workflows/training-inventory.yml']
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          mkdir -p inventory
+          git archive --format=zip --output=inventory/source.zip HEAD
+          python - <<'PY'
+          from pathlib import Path
+          import urllib.request,hashlib,json,re,time
+          out=Path('inventory');report=[]
+          pages={'pk-live':'https://6ab1939ae68f1a942996df56--pkstratagems.netlify.app/','agents':'https://wahapedia.ru/wh40k11ed/factions/imperial-agents/','waha-home':'https://wahapedia.ru/wh40k11ed/the-rules/core-rules/','gw-downloads':'https://www.warhammer-community.com/en-gb/downloads/warhammer-40000/'}
+          for name,url in pages.items():
+           try:
+            request=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; PK-Stratagems source review)'})
+            r=urllib.request.urlopen(request,timeout=45);raw=r.read()
+            (out/(name+'.html')).write_bytes(raw)
+            report.append({'name':name,'url':r.url,'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()})
+           except Exception as e:report.append({'name':name,'error':str(e)})
+           time.sleep(1)
+          (out/'report.json').write_text(json.dumps(report,indent=2));print(json.dumps(report))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pk-training-inventory
+          path: inventory/
+          retention-days: 7
