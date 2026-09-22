@@ -25,6 +25,7 @@ jobs:
           node-version: '22'
       - name: Assemble existing tested source and final typography
         run: |
+          python -m pip install beautifulsoup4==4.13.5
           python pkstratagems/tools/polish_training.py
           python pkstratagems/tools/assemble_v2.py
           python pkstratagems/tests/catalog_v2.py
