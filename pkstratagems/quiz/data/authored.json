@@ -1108,7 +1108,7 @@
       },
       {
         "id": "c",
-        "text": "Beide Ziele mit halber Kraft angreifen."
+        "text": "Den Angriff zunächst ganz zurückhalten."
       }
     ],
     "correctOptionId": "b",
@@ -1137,7 +1137,7 @@
       },
       {
         "id": "b",
-        "text": "Beide Aufgaben demselben Helfer geben."
+        "text": "Den Helfer aus beiden Räumen abziehen."
       },
       {
         "id": "c",
@@ -1442,7 +1442,7 @@
       }
     ],
     "correctOptionId": "b",
-    "explanation": "A verliert sicher. B gewinnt in60%, C in40%. Überzählige Siegpunkte erhöhen hier nicht die Gewinnchance.",
+    "explanation": "A verliert sicher. B gewinnt in 60%, C in 40%. Überzählige Siegpunkte erhöhen hier nicht die Gewinnchance.",
     "sources": [
       {
         "title": "Redaktionelles Taktikszenario · alle Zahlen sind Aufgabenannahmen",
@@ -1492,7 +1492,7 @@
     "kind": "tactics",
     "faction": null,
     "detachment": null,
-    "prompt": "Zwei feindliche Halter können identisch angegriffen werden. Das Entfernen von X verhindert 4 gegnerische Punkte; das Entfernen von Y verhindert2 und öffnet sicher3 eigene. Eigene Kategoriegrenzen greifen noch nicht. Welche Wahl maximiert die Punktedifferenz?",
+    "prompt": "Zwei feindliche Halter können identisch angegriffen werden. Das Entfernen von X verhindert 4 gegnerische Punkte; das Entfernen von Y verhindert 2 und öffnet sicher 3 eigene. Eigene Kategoriegrenzen greifen noch nicht. Welche Wahl maximiert die Punktedifferenz?",
     "options": [
       {
         "id": "a",
@@ -1508,7 +1508,7 @@
       }
     ],
     "correctOptionId": "b",
-    "explanation": "X verbessert die Differenz um4. Y verbessert sie um2+3=5. Denial und eigener Zugewinn müssen zusammen betrachtet werden.",
+    "explanation": "X verbessert die Differenz um 4. Y verbessert sie um 2+3=5. Denial und eigener Zugewinn müssen zusammen betrachtet werden.",
     "sources": [
       {
         "title": "Redaktionelles Taktikszenario · alle Zahlen sind Aufgabenannahmen",
@@ -1525,7 +1525,7 @@
     "kind": "tactics",
     "faction": null,
     "detachment": null,
-    "prompt": "Zug 4, du spielst zuerst. Der äußere Helfer bringt jetzt3 Punkte, ist danach sicher verloren; der innere Helfer bringt jetzt2 und in Zug 5 noch4 sicher. Du kannst nur einen Weg wählen. Keine weiteren Folgen. Welche Wahl bringt über beide Züge mehr?",
+    "prompt": "Zug 4, du spielst zuerst. Der äußere Helfer bringt jetzt 3 Punkte, ist danach sicher verloren; der innere Helfer bringt jetzt 2 und in Zug 5 noch 4 sicher. Du kannst nur einen Weg wählen. Keine weiteren Folgen. Welche Wahl bringt über beide Züge mehr?",
     "options": [
       {
         "id": "a",
@@ -1537,11 +1537,11 @@
       },
       {
         "id": "c",
-        "text": "Beide Helfer bis Zug5 zurückhalten."
+        "text": "Beide Helfer bis Zug 5 zurückhalten."
       }
     ],
     "correctOptionId": "b",
-    "explanation": "Der innere Weg bringt2+4=6 gegenüber3. Die frühe Einzelwertung ist nicht automatisch die beste Entscheidung über den verbleibenden Zeithorizont.",
+    "explanation": "Der innere Weg bringt 2+4=6 gegenüber 3. Die frühe Einzelwertung ist nicht automatisch die beste Entscheidung über den verbleibenden Zeithorizont.",
     "sources": [
       {
         "title": "Redaktionelles Taktikszenario · alle Zahlen sind Aufgabenannahmen",
@@ -1558,7 +1558,7 @@
     "kind": "tactics",
     "faction": null,
     "detachment": null,
-    "prompt": "Du benötigst einen Kill zur Freigabe einer Aktion. Trupp A schafft den Kill mit90%, B mit60%. A wird nächste Runde zwingend zum Abfangen einer Bedrohung gebraucht; B hat danach keine weitere Aufgabe. A kann B nach dessen Scheitern noch unterstützen. Welche Aktivierungsfolge ist besser?",
+    "prompt": "Du benötigst einen Kill zur Freigabe einer Aktion. Trupp A schafft den Kill mit 90%, B mit 60%. A wird nächste Runde zwingend zum Abfangen einer Bedrohung gebraucht; B hat danach keine weitere Aufgabe. A kann B nach dessen Scheitern noch unterstützen. Welche Aktivierungsfolge ist besser?",
     "options": [
       {
         "id": "a",
@@ -1723,7 +1723,7 @@
     "kind": "tactics",
     "faction": null,
     "detachment": null,
-    "prompt": "Eine 1-CP-Verbesserung hebt die Killchance von50 auf80%. Ein anderer legaler 1-CP-Einsatz hebt die Chance, einen 6-Punkte-Halter zu erhalten, von70 auf90%. Der Kill bringt3 Punkte. Weitere Folgen gibt es nicht. Welcher Einsatz hat mehr erwarteten Punktewert?",
+    "prompt": "Eine 1-CP-Verbesserung hebt die Killchance von 50 auf 80%. Ein anderer legaler 1-CP-Einsatz hebt die Chance, einen 6-Punkte-Halter zu erhalten, von 70 auf 90%. Der Kill bringt 3 Punkte. Weitere Folgen gibt es nicht. Welcher Einsatz hat mehr erwarteten Punktewert?",
     "options": [
       {
         "id": "a",
@@ -1756,7 +1756,7 @@
     "kind": "tactics",
     "faction": null,
     "detachment": null,
-    "prompt": "Zug3: Ein markiertes Ziel liefert laut Aufgabenregel weiter Punkte, auch wenn du es nicht hältst. Ein frisches Ziel kann nur mit dem dortigen Trupp erreicht werden. Es gibt keine gegnerische Gefahr für das alte Ziel und keine sonstige Haltewertung. Welche Wahl ist besser?",
+    "prompt": "Zug 3: Ein markiertes Ziel liefert laut Aufgabenregel weiter Punkte, auch wenn du es nicht hältst. Ein frisches Ziel kann nur mit dem dortigen Trupp erreicht werden. Es gibt keine gegnerische Gefahr für das alte Ziel und keine sonstige Haltewertung. Welche Wahl ist besser?",
     "options": [
       {
         "id": "a",
@@ -1789,7 +1789,7 @@
     "kind": "tactics",
     "faction": null,
     "detachment": null,
-    "prompt": "Letzter Zug, du liegst4 zurück. A erzielt sicher4 (Unentschieden), B gewinnt mit55% durch5 Punkte, C erzielt mit90% drei Punkte und sonst0. Es gibt keine anderen Scores. Dein Ziel ist ausschließlich ein Sieg. Welche Option?",
+    "prompt": "Letzter Zug, du liegst 4 zurück. A erzielt sicher 4 (Unentschieden), B gewinnt mit 55% durch 5 Punkte, C erzielt mit 90% drei Punkte und sonst 0. Es gibt keine anderen Scores. Dein Ziel ist ausschließlich ein Sieg. Welche Option?",
     "options": [
       {
         "id": "a",
@@ -1822,7 +1822,7 @@
     "kind": "tactics",
     "faction": null,
     "detachment": null,
-    "prompt": "Ein Angriff bringt mit70% sechs eigene Punkte, kostet dann aber sicher einen Halter mit3 Punkten im nächsten Zug. Bei Fehlschlag fallen beide Gewinne aus und der Halter geht ebenfalls verloren. Alternativ bleibt der Halter sicher erhalten; sonst entstehen keine Punkte. Was maximiert den Erwartungswert über beide Züge?",
+    "prompt": "Ein Angriff bringt mit 70% sechs eigene Punkte, kostet dann aber sicher einen Halter mit 3 Punkten im nächsten Zug. Bei Fehlschlag fallen beide Gewinne aus und der Halter geht ebenfalls verloren. Alternativ bleibt der Halter sicher erhalten; sonst entstehen keine Punkte. Was maximiert den Erwartungswert über beide Züge?",
     "options": [
       {
         "id": "a",
@@ -1838,7 +1838,7 @@
       }
     ],
     "correctOptionId": "a",
-    "explanation": "Angriff erzielt0,70×6=4,2 Gesamtpunkte, Halten3. Der Verlust des Halters ist im Alternativenvergleich enthalten; nicht4,2−3 mit3 vergleichen und dessen Kosten doppelt zählen. Es geht um Erwartungswert, nicht um Überlebenswahrscheinlichkeit.",
+    "explanation": "Angriff erzielt 0,70×6=4,2 Gesamtpunkte, Halten 3. Der Verlust des Halters ist im Alternativenvergleich enthalten; nicht 4,2−3 mit 3 vergleichen und dessen Kosten doppelt zählen. Es geht um Erwartungswert, nicht um Überlebenswahrscheinlichkeit.",
     "sources": [
       {
         "title": "Redaktionelles Taktikszenario · alle Zahlen sind Aufgabenannahmen",
@@ -1855,11 +1855,11 @@
     "kind": "tactics",
     "faction": null,
     "detachment": null,
-    "prompt": "Zwei unabhängige Aufgaben bringen je4 Punkte und sind beide nötig, um den Rückstand aufzuholen. Ohne CP gelingen sie mit60% und80%. Dein einziger CP erhöht wahlweise die erste auf80% oder die zweite auf95%. Welche Verbesserung erhöht die gemeinsame Erfolgswahrscheinlichkeit stärker?",
+    "prompt": "Zwei unabhängige Aufgaben bringen je 4 Punkte und sind beide nötig, um den Rückstand aufzuholen. Ohne CP gelingen sie mit 60% und 80%. Dein einziger CP erhöht wahlweise die erste auf 80% oder die zweite auf 95%. Welche Verbesserung erhöht die gemeinsame Erfolgswahrscheinlichkeit stärker?",
     "options": [
       {
         "id": "a",
-        "text": "Die zweite Aufgabe auf95% erhöhen."
+        "text": "Die zweite Aufgabe auf 95% erhöhen."
       },
       {
         "id": "b",
@@ -1867,7 +1867,7 @@
       },
       {
         "id": "c",
-        "text": "Die erste Aufgabe auf80% erhöhen."
+        "text": "Die erste Aufgabe auf 80% erhöhen."
       }
     ],
     "correctOptionId": "c",
@@ -1888,15 +1888,15 @@
     "kind": "tactics",
     "faction": null,
     "detachment": null,
-    "prompt": "Du führst um2. Der Gegner gewinnt genau dann, wenn seine beiden unabhängigen Aktionen für je3 Punkte gelingen. Aktuell haben beide80%. Du kannst eine auf20% senken oder beide auf50%. Welche Abwehr minimiert seine Siegchance?",
+    "prompt": "Du führst um 5. Der Gegner gewinnt genau dann, wenn seine beiden unabhängigen Aktionen für je 3 Punkte gelingen. Aktuell haben beide 80%. Du kannst eine auf 20% senken oder beide auf 50%. Welche Abwehr minimiert seine Siegchance?",
     "options": [
       {
         "id": "a",
-        "text": "Eine Aktion auf20% senken."
+        "text": "Eine Aktion auf 20% senken."
       },
       {
         "id": "b",
-        "text": "Beide Aktionen auf50% senken."
+        "text": "Beide Aktionen auf 50% senken."
       },
       {
         "id": "c",
@@ -1904,7 +1904,7 @@
       }
     ],
     "correctOptionId": "a",
-    "explanation": "Die Aufgabe legt fest, dass beide Aktionen nötig sind. Eine auf20% ergibt0,2×0,8=16% Gegnersieg, beide auf50% ergeben25%. Ein unbeteiligter Kampftrupp ändert nichts. Die angegebenen Siegbedingungen sind hier entscheidend.",
+    "explanation": "Die Aufgabe legt fest, dass beide Aktionen nötig sind. Eine auf 20% ergibt 0,2×0,8=16% Gegnersieg, beide auf 50% ergeben 25%. Ein unbeteiligter Kampftrupp ändert nichts. Die angegebenen Siegbedingungen sind hier entscheidend.",
     "sources": [
       {
         "title": "Redaktionelles Taktikszenario · alle Zahlen sind Aufgabenannahmen",
@@ -1921,7 +1921,7 @@
     "kind": "tactics",
     "faction": null,
     "detachment": null,
-    "prompt": "Am Ende dieses Zuges sind noch2 Primärpunkte bis zum Kategorienlimit frei. Angriff A schafft mit80% einen 4-Punkte-Primärgewinn. Angriff B verhindert mit60% drei gegnerische Punkte. Ansonsten keine Folgen. Welche Wahl maximiert die erwartete Differenz?",
+    "prompt": "Am Ende dieses Zuges sind noch 2 Primärpunkte bis zum Kategorienlimit frei. Angriff A schafft mit 80% einen 4-Punkte-Primärgewinn. Angriff B verhindert mit 60% drei gegnerische Punkte. Ansonsten keine Folgen. Welche Wahl maximiert die erwartete Differenz?",
     "options": [
       {
         "id": "a",
@@ -1937,7 +1937,7 @@
       }
     ],
     "correctOptionId": "b",
-    "explanation": "A kann nur2 Punkte anrechnen:0,8×2=1,6. B bringt0,6×3=1,8 Differenz. Rohwert und Kategoriegrenze müssen vor dem Chancenvergleich zusammengeführt werden.",
+    "explanation": "A kann nur 2 Punkte anrechnen:0,8×2=1,6. B bringt 0,6×3=1,8 Differenz. Rohwert und Kategoriegrenze müssen vor dem Chancenvergleich zusammengeführt werden.",
     "sources": [
       {
         "title": "Redaktionelles Taktikszenario · alle Zahlen sind Aufgabenannahmen",
@@ -1954,7 +1954,7 @@
     "kind": "tactics",
     "faction": null,
     "detachment": null,
-    "prompt": "Ein 1-CP-Werkzeug kann heute den Verlust eines 4-Punkte-Halters mit25 Prozentpunkten geringerer Wahrscheinlichkeit verhindern. Aufheben ermöglicht morgen sicher einen sonst unmöglichen 2-Punkte-Abschluss. Beide Anwendungen sind legal; spätere Unsicherheit und neue CP entfallen. Welche Priorität ist besser?",
+    "prompt": "Ein 1-CP-Werkzeug kann heute den Verlust eines 4-Punkte-Halters mit 25 Prozentpunkten geringerer Wahrscheinlichkeit verhindern. Aufheben ermöglicht morgen sicher einen sonst unmöglichen 2-Punkte-Abschluss. Beide Anwendungen sind legal; spätere Unsicherheit und neue CP entfallen. Welche Priorität ist besser?",
     "options": [
       {
         "id": "a",
@@ -1966,11 +1966,11 @@
       },
       {
         "id": "c",
-        "text": "Den CP für beliebigen Zusatzschaden nutzen."
+        "text": "Den CP bis zum Spielende ungenutzt behalten."
       }
     ],
     "correctOptionId": "b",
-    "explanation": "Heute1 erwarteter Punkt (0,25×4), morgen2 sichere Punkte. Der gewünschte Zeithorizont umfasst beide Züge; „jetzt kann ich es einsetzen“ ist kein Wertmaßstab.",
+    "explanation": "Heute 1 erwarteter Punkt (0,25×4), morgen 2 sichere Punkte. Der gewünschte Zeithorizont umfasst beide Züge; „jetzt kann ich es einsetzen“ ist kein Wertmaßstab.",
     "sources": [
       {
         "title": "Redaktionelles Taktikszenario · alle Zahlen sind Aufgabenannahmen",
@@ -1987,7 +1987,7 @@
     "kind": "tactics",
     "faction": null,
     "detachment": null,
-    "prompt": "Du kannst eine gegnerische Aktion mit100% für3 Punkte stoppen oder ein zweites Ziel mit70% nehmen: Bei Erfolg bekommst du3 eigene Punkte und verhinderst2 gegnerische. Scheitern kostet keine zusätzlichen Punkte. Keine Limits greifen. Welche Route maximiert die erwartete Differenz?",
+    "prompt": "Du kannst eine gegnerische Aktion mit 100% für 3 Punkte stoppen oder ein zweites Ziel mit 70% nehmen: Bei Erfolg bekommst du 3 eigene Punkte und verhinderst 2 gegnerische. Scheitern kostet keine zusätzlichen Punkte. Keine Limits greifen. Welche Route maximiert die erwartete Differenz?",
     "options": [
       {
         "id": "a",
@@ -1995,11 +1995,11 @@
       },
       {
         "id": "b",
-        "text": "Beide Ziele mit unberechneter Hälfte angehen."
+        "text": "Die Angriffsreserve hinter der Linie halten."
       },
       {
         "id": "c",
-        "text": "Den zweiten Zielwechsel mit70% versuchen."
+        "text": "Den zweiten Zielwechsel mit 70% versuchen."
       }
     ],
     "correctOptionId": "c",
@@ -2020,7 +2020,7 @@
     "kind": "tactics",
     "faction": null,
     "detachment": null,
-    "prompt": "Zug 4: Ein flankierender Trupp darf jetzt für5 sichere Punkte geopfert werden. Erhalten bleibt er heute punktlos, sichert aber Zug 5 mit80% sechs Punkte. Die gegnerische Schlusswertung wird davon nicht verändert. Welcher Weg erzielt mehr erwartete eigene Punkte?",
+    "prompt": "Zug 4: Ein flankierender Trupp darf jetzt für 5 sichere Punkte geopfert werden. Erhalten bleibt er heute punktlos, sichert aber Zug 5 mit 80% sechs Punkte. Die gegnerische Schlusswertung wird davon nicht verändert. Welcher Weg erzielt mehr erwartete eigene Punkte?",
     "options": [
       {
         "id": "a",
@@ -2028,7 +2028,7 @@
       },
       {
         "id": "b",
-        "text": "Den Trupp für Zug5 erhalten."
+        "text": "Den Trupp für Zug 5 erhalten."
       },
       {
         "id": "c",
@@ -2036,7 +2036,7 @@
       }
     ],
     "correctOptionId": "a",
-    "explanation": "Fünf jetzt sind höher als0,80×6=4,8 später. Ressourcenerhalt ist kein Selbstzweck; bei anderer Gewinnschwelle oder Gegnerschlusswertung könnte die Abwägung anders ausfallen.",
+    "explanation": "Fünf jetzt sind höher als 0,80×6=4,8 später. Ressourcenerhalt ist kein Selbstzweck; bei anderer Gewinnschwelle oder Gegnerschlusswertung könnte die Abwägung anders ausfallen.",
     "sources": [
       {
         "title": "Redaktionelles Taktikszenario · alle Zahlen sind Aufgabenannahmen",
@@ -2053,7 +2053,7 @@
     "kind": "tactics",
     "faction": null,
     "detachment": null,
-    "prompt": "Du hast zwei Angreifer. X allein entfernt einen Halter mit90%, Y allein mit60%, gemeinsam sicher. Du kannst X erst nach Y aktivieren. Y hat keine andere Aufgabe; X kann bei nicht benötigter Unterstützung sicher4 Punkte an anderer Stelle ermöglichen. Welche Sequenz?",
+    "prompt": "Du hast zwei Angreifer. X allein entfernt einen Halter mit 90%, Y allein mit 60%, gemeinsam sicher. X kann nach Y noch aktiviert werden. Y hat keine andere Aufgabe; X kann bei nicht benötigter Unterstützung sicher 4 Punkte an anderer Stelle ermöglichen. Welche Sequenz?",
     "options": [
       {
         "id": "a",
@@ -2069,7 +2069,7 @@
       }
     ],
     "correctOptionId": "b",
-    "explanation": "Y bekommt zuerst die60%-Chance. In diesen60% bleibt X für4 Punkte frei; in den übrigen Fällen unterstützt X. Die Sequenz hält einen wertvollen Folgeentscheid offen, statt Ressourcen vorzeitig zu binden.",
+    "explanation": "Y bekommt zuerst die 60%-Chance. In diesen 60% bleibt X für 4 Punkte frei; in den übrigen Fällen unterstützt X. Die Sequenz hält einen wertvollen Folgeentscheid offen, statt Ressourcen vorzeitig zu binden.",
     "sources": [
       {
         "title": "Redaktionelles Taktikszenario · alle Zahlen sind Aufgabenannahmen",
@@ -2086,7 +2086,7 @@
     "kind": "tactics",
     "faction": null,
     "detachment": null,
-    "prompt": "Du spielst zuerst in Runde 5. Position A bringt jetzt5 und verliert durch den letzten Gegnerzug sicher einen Spielendbonus von5. Position B bringt jetzt3 und behält den Bonus sicher. Andere Wertungen sind gleich. Welche Position liefert insgesamt mehr?",
+    "prompt": "Du spielst zuerst in Runde 5. Position A bringt jetzt 5 und verliert durch den letzten Gegnerzug sicher einen Spielendbonus von 5. Position B bringt jetzt 3 und behält den Bonus sicher. Andere Wertungen sind gleich. Welche Position liefert insgesamt mehr?",
     "options": [
       {
         "id": "a",
@@ -2102,7 +2102,7 @@
       }
     ],
     "correctOptionId": "b",
-    "explanation": "A bringt5 insgesamt, B3+5=8. Die eigene End-of-Turn-Wertung und die spätere End-of-Battle-Wertung sind unterschiedliche Zeitpunkte.",
+    "explanation": "A bringt 5 insgesamt, B3+5=8. Die eigene End-of-Turn-Wertung und die spätere End-of-Battle-Wertung sind unterschiedliche Zeitpunkte.",
     "sources": [
       {
         "title": "Redaktionelles Taktikszenario · alle Zahlen sind Aufgabenannahmen",
@@ -2119,7 +2119,7 @@
     "kind": "tactics",
     "faction": null,
     "detachment": null,
-    "prompt": "Ein gefährlicher Panzer kann deine Halter nur durch einen engen, legal blockierbaren Endpositionsbereich erreichen. Dein kleiner Screen blockiert diesen Bereich sicher, verursacht aber keinen Schaden. Alternativ schießt er mit30% auf einen Panzer-Kill; bei Fehlschlag verlierst du6 Punkte. Der Kill bringt keine eigenen Punkte. Welche Wahl ist vorzuziehen?",
+    "prompt": "Ein gefährlicher Panzer kann deine Halter nur durch einen engen, legal blockierbaren Endpositionsbereich erreichen. Dein kleiner Screen blockiert diesen Bereich sicher, verursacht aber keinen Schaden. Alternativ schießt er mit 30% auf einen Panzer-Kill; bei Fehlschlag verlierst du 6 Punkte. Der Kill bringt keine eigenen Punkte. Welche Wahl ist vorzuziehen?",
     "options": [
       {
         "id": "a",
@@ -2152,7 +2152,7 @@
     "kind": "tactics",
     "faction": null,
     "detachment": null,
-    "prompt": "Du kannst X für4 sichere Differenzpunkte entfernen oder Y mit75%: Y verhindert im Erfolgsfall4 gegnerische Punkte und öffnet2 eigene; bei Fehlschlag verliert dein Helfer sicher1 Punkt. Welcher Angriff maximiert den Erwartungswert?",
+    "prompt": "Du kannst X für 4 sichere Differenzpunkte entfernen oder Y mit 75%: Y verhindert im Erfolgsfall 4 gegnerische Punkte und öffnet 2 eigene; bei Fehlschlag verliert dein Helfer sicher 1 Punkt. Welcher Angriff maximiert den Erwartungswert?",
     "options": [
       {
         "id": "a",

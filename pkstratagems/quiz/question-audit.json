@@ -1,16 +1,16 @@
 {
-  "total": 7204,
+  "total": 7203,
   "topics": {
     "core": 30,
     "tactics": 36,
-    "stratagem": 3299,
+    "stratagem": 3298,
     "detachment": 409,
     "faction": 59,
     "datasheet": 3371
   },
   "difficulty": {
     "easy": 2793,
-    "medium": 2563,
+    "medium": 2562,
     "hard": 1848
   },
   "tacticalLengthOutliers": [],
