@@ -1,0 +1,30 @@
+name: Read existing Doubles route
+on:
+  push:
+    branches: ['update/training-catalog-2026-09']
+    paths: ['.github/workflows/check-existing-doubles.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - run: |
+          mkdir -p result
+          python - <<'PY'
+          from urllib.request import urlopen
+          from pathlib import Path
+          import re,json
+          url='https://6ab1939ae68f1a942996df56--pkstratagems.netlify.app/doubles/'
+          raw=urlopen(url,timeout=45).read();Path('result/doubles.html').write_bytes(raw)
+          text=raw.decode();print(text[:18000])
+          links=re.findall(r'(?:src|href)=[\"\']([^\"\']+)',text)
+          Path('result/dependencies.json').write_text(json.dumps(links,indent=2))
+          print('All declared dependencies:',json.dumps(links))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: doubles-baseline-inspect
+          path: result/
+          retention-days: 1
