@@ -1,0 +1,123 @@
+name: PK training catalogue release
+on:
+  push:
+    branches: ['update/training-catalog-2026-09']
+    paths: ['.github/workflows/training-release.yml']
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: pk-training-release
+  cancel-in-progress: false
+jobs:
+  verify-and-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Restore hash-verified source implementation
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64,lzma,json,hashlib
+          pieces=[Path('operations')/f'training-source-{i:02}.b64' for i in range(1,10)]
+          packed=''.join(p.read_text().strip() for p in pieces)
+          raw=lzma.decompress(base64.b64decode(packed,validate=True))
+          assert hashlib.sha256(raw).hexdigest()=='2d619a4708172eef16d4ff3a286d068bb4e81d1e9ffa19f11f3f20bb3b58f889'
+          data=json.loads(raw);assert len(data)==17
+          for name,content in data.items():
+           p=Path(name)
+           assert p.parts[0]=='pkstratagems' and '..' not in p.parts and not p.is_absolute()
+           p.parent.mkdir(parents=True,exist_ok=True);p.write_text(content)
+          print('Verified and restored',len(data),'implementation files.')
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: pk-faction-sources
+          run-id: 35717944699
+          github-token: ${{ github.token }}
+          path: training-sources
+      - uses: actions/download-artifact@v4
+        with:
+          name: pk-structured-sources
+          run-id: 35718380717
+          github-token: ${{ github.token }}
+          path: structured-sources
+      - name: Preserve baseline IDs and prepare dependencies
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';import vm from 'node:vm';
+          const html=fs.readFileSync('pkstratagems/index.html','utf8');
+          const script=[...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(x=>x[1]).find(x=>x.includes('const DB ='));
+          if(!script)throw new Error('Existing browser data was not found.');
+          const code=script.split('/* ---------- Zustand ---------- */')[0];
+          const data=vm.runInNewContext(code+';DB');
+          fs.writeFileSync('old-db.json',JSON.stringify(data));
+          console.log('Baseline catalogue preserved:',data.factions.length,'factions.');
+          JS
+          python -m pip install beautifulsoup4==4.13.5 playwright==1.55.0 cryptography==46.0.1
+          python -m playwright install --with-deps chromium
+      - name: Generate source-linked catalogue and question bank
+        run: |
+          python pkstratagems/tools/build_catalog.py
+          python pkstratagems/tools/author_questions.py
+          python pkstratagems/tools/generate_bank.py
+          python pkstratagems/tools/finalize_v2.py
+          python pkstratagems/tools/assemble_v2.py
+      - name: Validate question quality, coverage and session logic
+        run: |
+          python pkstratagems/tests/catalog_v2.py
+          node --check pkstratagems/quiz/app.mjs
+          node --check pkstratagems/quiz/core.mjs
+          node --check pkstratagems/fraktionen/app.mjs
+          node --test pkstratagems/tests/training.test.mjs
+      - name: Exercise browser and responsive views
+        run: |
+          python -m http.server 8765 --directory pkstratagems/netlify-site/public > /tmp/pk-http.log 2>&1 &
+          SERVER=$!
+          trap 'kill $SERVER' EXIT
+          python pkstratagems/tests/browser_v2.py --base http://127.0.0.1:8765/
+      - name: Commit tested application without changing Dropzone main
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add pkstratagems/index.html pkstratagems/README.md pkstratagems/quiz pkstratagems/fraktionen pkstratagems/library pkstratagems/tools pkstratagems/tests pkstratagems/integration-report-v2.json
+          git diff --cached --name-only
+          git commit -m 'PK training v2: ten-question sessions, full catalogue, faction rules and tactical decisions'
+          git push origin HEAD:update/training-catalog-2026-09
+      - name: Create ephemeral release authorization key
+        run: python pkstratagems/tools/prepare_key.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pk-training-public-key
+          path: pkstratagems/release-public/
+          retention-days: 1
+      - name: Preview, test, publish and verify the existing Netlify site
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python pkstratagems/tools/release_v2.py
+      - name: Record public release evidence
+        run: |
+          cp pkstratagems/qa/release-report.json pkstratagems/DEPLOYMENT-v2.json
+          git add pkstratagems/DEPLOYMENT-v2.json
+          git commit -m 'Record verified PK training v2 Netlify publication'
+          git pull --rebase origin update/training-catalog-2026-09
+          git push origin HEAD:update/training-catalog-2026-09
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pk-training-release-qa
+          path: |
+            pkstratagems/qa/
+            pkstratagems/integration-report-v2.json
+            pkstratagems/quiz/question-audit.json
+          if-no-files-found: ignore
+          retention-days: 14
