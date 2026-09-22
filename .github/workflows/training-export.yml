@@ -1,0 +1,48 @@
+name: PK structured rules inventory
+on:
+  push:
+    branches: ['update/training-catalog-2026-09']
+    paths: ['.github/workflows/training-export.yml']
+permissions:
+  contents: read
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          mkdir -p structured-sources
+          python - <<'PY'
+          from pathlib import Path
+          from urllib.request import urlopen,Request
+          from urllib.parse import urlparse,unquote
+          import zipfile,io,re,json,time,hashlib
+          out=Path('structured-sources');report=[]
+          def fetch(url,name):
+           req=Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; PK-Stratagems data export review)'})
+           with urlopen(req,timeout=60) as r:raw=r.read();final=r.url
+           (out/name).write_bytes(raw);report.append({'name':name,'url':final,'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()})
+           return raw
+          raw=fetch('https://wahapedia.ru/wh40k11ed/Export%20Data%20Specs.xlsx?v=20260817b','export-specs.xlsx')
+          with zipfile.ZipFile(io.BytesIO(raw)) as z:
+           xml='\n'.join(z.read(n).decode('utf-8') for n in z.namelist() if n.endswith('.xml') or n.endswith('.rels'))
+          urls=sorted(set(re.findall(r'https?://[^\s"<>]+\.csv',xml)))
+          assert urls, 'No documented CSV links found.'
+          for url in urls:
+           if 'wahapedia.ru/wh40k11ed/' not in url:continue
+           name=unquote(urlparse(url).path.split('/')[-1])
+           try:fetch(url,name)
+           except Exception as e:report.append({'name':name,'url':url,'error':str(e)})
+           time.sleep(.4)
+          (out/'report.json').write_text(json.dumps(report,indent=2));print(json.dumps(report))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pk-structured-sources
+          path: structured-sources/
+          retention-days: 7
