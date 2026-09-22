@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "baseline": "https://6ab1939ae68f1a942996df56--pkstratagems.netlify.app",
+  "baselineSHA256": "63f0cf70824be2dd82b668b594a90a4c9f984d58a778e5a076c174887f396f58",
+  "newRootSHA256": "4cccb0b4a1d9f52ab753aa158e6f22a71ff2523e147caa5d38e7e663a7bacc41",
+  "counts": {
+    "factions": 24,
+    "detachments": 270,
+    "stratagems": 1338,
+    "datasheets": 1135
+  },
+  "changed": [
+    "stratagem catalogue",
+    "faction rules route",
+    "ten-question training"
+  ],
+  "unchanged": [
+    "pk_cp",
+    "pk_active_v2",
+    "doubles fallback",
+    "Dropzone main",
+    "original PDFs"
+  ],
+  "fallback": "https://6ab1939ae68f1a942996df56--pkstratagems.netlify.app/:splat"
+}

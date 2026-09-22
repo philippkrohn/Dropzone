@@ -1,0 +1,17 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+import {validateBank,poolFor,conceptCount,makeAttempt,grade,restoreAttempt,configURL,STORAGE_KEY} from '../quiz/core.mjs';
+const B=validateBank(JSON.parse(fs.readFileSync(new URL('../quiz/data/bank.json',import.meta.url))));
+const I=JSON.parse(fs.readFileSync(new URL('../quiz/data/index.json',import.meta.url)));
+for(const d of I.detachments)for(const level of ['easy','medium','hard'])test(`${d.name} / ${level}: ten concepts, correct scope`,()=>{
+ const cfg={faction:d.faction,detachment:d.id,difficulty:level,mode:'mixed'};const a=makeAttempt(B,cfg);assert.equal(a.questionIds.length,10);assert.equal(new Set(a.questionIds.map(id=>B.questions.find(q=>q.id===id).conceptId)).size,10);
+ for(const id of a.questionIds){const q=B.questions.find(q=>q.id===id);assert.equal(q.difficulty,level);assert(!q.faction||q.faction===d.faction);assert(!q.detachment||q.detachment===d.id);}
+ assert(a.questionIds.map(id=>B.questions.find(q=>q.id===id)).some(q=>q.kind==='tactics'));
+});
+for(const f of I.factions)for(const difficulty of ['easy','medium','hard'])for(const mode of ['rules','tactics','mixed'])test(`${f.name} ${difficulty} ${mode}`,()=>{const a=makeAttempt(B,{faction:f.id,difficulty,mode});assert.equal(a.questionIds.length,10);assert(restoreAttempt(B,a));});
+test('grades, reload and stable option order',()=>{const a=makeAttempt(B,{difficulty:'hard',mode:'mixed'});for(const id of a.questionIds)a.answers[id]=B.questions.find(q=>q.id===id).correctOptionId;a.submitted=true;assert.equal(grade(B,a).correct,10);assert.deepEqual(restoreAttempt(B,JSON.stringify(a)),a);const bad=structuredClone(a);bad.optionOrders[bad.questionIds[0]]=['a','a','a'];assert.equal(restoreAttempt(B,bad),null);});
+test('wrong-answer retry stays at ten and preserves distinct concepts',()=>{const a=makeAttempt(B,{difficulty:'medium',mode:'mixed'}),wrong=a.questionIds.slice(0,4),b=makeAttempt(B,a.config,{priorityIds:wrong});assert.equal(b.questionIds.length,10);assert(wrong.every(id=>b.questionIds.includes(id)));});
+test('answer positions vary rather than using a fixed key',()=>{const positions=new Set(),a=makeAttempt(B,{mode:'tactics',difficulty:'hard'});for(let i=0;i<30;i++){const b=makeAttempt(B,a.config);const q=B.questions.find(q=>q.id===b.questionIds[0]);positions.add(b.optionOrders[q.id].indexOf(q.correctOptionId));}assert.equal(positions.size,3);});
+test('tactical items never carry an illegal-answer question type',()=>{for(const q of B.questions.filter(q=>q.kind==='tactics')){assert.equal(q.options.length,3);assert.equal(q.topic,'tactics');assert(!/Welche .*?(?:zulässig|erlaubt)\?/i.test(q.prompt));const ls=q.options.map(o=>o.text.length);assert(Math.max(...ls)/Math.min(...ls)<=1.7,q.id);}});
+test('no player/list-specific quiz leakage',()=>{for(const q of B.questions)assert(!/\b(?:Norman|Philipp|B1|B2|K1|K2)\b/.test(q.prompt),q.id);});
+test('share links omit answers and local namespaces stay isolated',()=>{assert.equal(STORAGE_KEY,'pkstratagems:training:v2');assert(!configURL({faction:'agents',answers:'secret'},'https://pkstratagems.netlify.app/quiz/').includes('secret'));});
+test('all catalogue scopes point to actual questions, no placeholder difficulty',()=>{assert.equal(I.factions.length,24);assert.equal(I.detachments.length,270);for(const l of ['easy','medium','hard'])assert(conceptCount(poolFor(B,{difficulty:l,mode:'tactics'}))>=10);});

@@ -1,0 +1,487 @@
+{
+  "meta": {
+    "version": "2.0.0",
+    "publishedDate": "22.09.2026",
+    "edition": "11",
+    "exportLastUpdated": "2026-09-13 03:43:55",
+    "retrievedDate": "22.09.2026",
+    "basis": "Quellengetreuer EN-Regeltext aus dem Wahapedia-Datenexport; Fraktionsregeln aus den am 22.09.2026 abgerufenen Seiten. Keine offizielle GW-App. Im Streitfall gelten Originalregeln und Evententscheid.",
+    "excluded": "Boarding Actions, Crusade, Legends und Unbound Adversaries sind nicht Teil des Matched-Play-Trainings. Space-Marine-Supplements werden im Quellenkatalog unter Space Marines geführt.",
+    "counts": {
+      "factions": 24,
+      "detachments": 270,
+      "stratagems": 1338,
+      "datasheets": 1135
+    },
+    "dataExport": "https://wahapedia.ru/wh40k11ed/the-rules/data-export/"
+  },
+  "sourceFiles": [
+    {
+      "name": "export-specs.xlsx",
+      "url": "https://wahapedia.ru/wh40k11ed/Export%20Data%20Specs.xlsx?v=20260817b",
+      "bytes": 19132,
+      "sha256": "d69444c1bcd59e07281c6d973a96be2f558c34136ca212f3d89a28f03feb5a7e"
+    },
+    {
+      "name": "Abilities.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Abilities.csv",
+      "bytes": 202060,
+      "sha256": "19cc9a19d81246f8203ca22a1c757c6ef3772d6c9532526e9a8a70a9d78451bd"
+    },
+    {
+      "name": "Datasheets.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Datasheets.csv",
+      "bytes": 858161,
+      "sha256": "5662b2e51290f9341afbd72181948162a7ee872f7f15ca17b6153839da362fde"
+    },
+    {
+      "name": "Datasheets_abilities.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Datasheets_abilities.csv",
+      "bytes": 961428,
+      "sha256": "0ae8165ec84577d1ca09707b7e83a7be948f894f37511a2d3e3c08cc842589fa"
+    },
+    {
+      "name": "Datasheets_detachment_abilities.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Datasheets_detachment_abilities.csv",
+      "bytes": 354042,
+      "sha256": "5ddeef1230bd69dc3989fb3b471c2137206d2c46b2086963f05c76f885e15328"
+    },
+    {
+      "name": "Datasheets_enhancements.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Datasheets_enhancements.csv",
+      "bytes": 285308,
+      "sha256": "ed4677263285a640717b38f799565b204974c2bd385b7c2975e78d1256b19c96"
+    },
+    {
+      "name": "Datasheets_keywords.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Datasheets_keywords.csv",
+      "bytes": 476941,
+      "sha256": "a1c21be6e3d6b5cc3b21e271853e2a15fe9a9d2eec68a872c37be23f261aa6d5"
+    },
+    {
+      "name": "Datasheets_leader.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Datasheets_leader.csv",
+      "bytes": 34919,
+      "sha256": "874fbb151d7f5ad7ad914bb1fb43643e66d79de07722a686eca0871f2ee7b7c2"
+    },
+    {
+      "name": "Datasheets_models.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Datasheets_models.csv",
+      "bytes": 107099,
+      "sha256": "8da43808411a9c01ddedca2f09374e496a60abc27ee967f56ea02555f527968e"
+    },
+    {
+      "name": "Datasheets_models_cost.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Datasheets_models_cost.csv",
+      "bytes": 189301,
+      "sha256": "443b1ec8d29deecf1d1588af4becd79d5b81b1fd70a9af67e023d49daeeab4d7"
+    },
+    {
+      "name": "Datasheets_options.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Datasheets_options.csv",
+      "bytes": 371579,
+      "sha256": "bc215014e40b69264e4daea2421f02b1b468ce2950e4f93721d5458db9243e9f"
+    },
+    {
+      "name": "Datasheets_stratagems.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Datasheets_stratagems.csv",
+      "bytes": 2150506,
+      "sha256": "ddbf9b3ed12d738c0b8f5685a0b03c27a38e272145c099a0a9ba539bc48dbcd4"
+    },
+    {
+      "name": "Datasheets_unit_composition.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Datasheets_unit_composition.csv",
+      "bytes": 85580,
+      "sha256": "67c99dff3cd6656020110e16133394b395ffb92a512db1526affc31abbc2c782"
+    },
+    {
+      "name": "Datasheets_wargear.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Datasheets_wargear.csv",
+      "bytes": 631770,
+      "sha256": "5001487f71759feb36cfa2dbe8a55203fd8d176ecc300a5a76ec1af62002ecf5"
+    },
+    {
+      "name": "Detachment_abilities.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Detachment_abilities.csv",
+      "bytes": 324842,
+      "sha256": "44c1372be545808f9a37e1e173cc89caecfe591633594cf2741a3408cba3b4d3"
+    },
+    {
+      "name": "Detachments.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Detachments.csv",
+      "bytes": 147249,
+      "sha256": "445af298071f5014f7f1e49e55669b4a6bbaf8e798d95717d9ea85fb94314e5e"
+    },
+    {
+      "name": "Detachments_chapter_dp.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Detachments_chapter_dp.csv",
+      "bytes": 140,
+      "sha256": "d02a18c505cf6adb0cce01a45046a5487a1391fde4358f75a043124e1d5ef02c"
+    },
+    {
+      "name": "Enhancements.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Enhancements.csv",
+      "bytes": 477886,
+      "sha256": "5be875b68ee1b4499bbda71982ebc99b542a5b9491d5db95e1ffab8d3715a318"
+    },
+    {
+      "name": "Factions.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Factions.csv",
+      "bytes": 1876,
+      "sha256": "d5038518059e5deeafa8d74e814a51598929a45c2864d3056c92c8629e7d4608"
+    },
+    {
+      "name": "Last_update.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Last_update.csv",
+      "bytes": 39,
+      "sha256": "fc139086805e9b460fee1f9fce78340e367a36e92bb790efc8c75b70380cb440"
+    },
+    {
+      "name": "Source.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Source.csv",
+      "bytes": 8432,
+      "sha256": "e6f74afb7b43f6779ec9a03ad0699ff11dd27b9d2f08243d5c04dd07fd99f6e0"
+    },
+    {
+      "name": "Stratagems.csv",
+      "url": "https://wahapedia.ru/wh40k11ed/Stratagems.csv",
+      "bytes": 1148706,
+      "sha256": "5d79cab42cf6c9efcbe69626d365ef933aa9b11e5d16fbe86b66250c14fdbeed"
+    }
+  ],
+  "htmlSourceFiles": [
+    {
+      "path": "nav.html",
+      "url": "https://wahapedia.ru/wh40k11ed/nav.html",
+      "bytes": 8292,
+      "sha256": "18e0c08dcb2c422e8e56f5c76d3e32422bd69efa9b5b6eed769245c3249d2643"
+    },
+    {
+      "path": "factions/adeptus-custodes.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/adeptus-custodes/",
+      "bytes": 604032,
+      "sha256": "8c1642ceca58248f506e60f5306322addaf7aa5eea679f6ceeb4509436883fe8"
+    },
+    {
+      "path": "factions/adepta-sororitas.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/adepta-sororitas/",
+      "bytes": 606095,
+      "sha256": "2d8ac48c3866e07fbb0ea20cf8a1788ff14744fa9443a3ef9b793a05142c13fc"
+    },
+    {
+      "path": "factions/adeptus-mechanicus.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/adeptus-mechanicus/",
+      "bytes": 699611,
+      "sha256": "04c55063b3d3b228f2ce810e3059567f2153adcc822123830516bb1b73e24942"
+    },
+    {
+      "path": "armylists/adeptus-custodes.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/adeptus-custodes/armylist.html",
+      "bytes": 9320,
+      "sha256": "42a7c83567f10113c32ba9046d91dc0fd71c3c30a2822715e04fb6e877dfc394"
+    },
+    {
+      "path": "armylists/adepta-sororitas.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/adepta-sororitas/armylist.html",
+      "bytes": 8629,
+      "sha256": "fb6a55bce9e686776f60bcd3fcc201e80995945a67440b6f9c8e6a1f99cc814f"
+    },
+    {
+      "path": "armylists/adeptus-mechanicus.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/adeptus-mechanicus/armylist.html",
+      "bytes": 9391,
+      "sha256": "31f6ca7511922a3355f0f60c3f36b22e362dbb365c2b64d6b382be98483007a4"
+    },
+    {
+      "path": "factions/adeptus-titanicus.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/adeptus-titanicus/",
+      "bytes": 98747,
+      "sha256": "db66b1de71c7559b91149e7fcd145c0f198d3c148d6c4a96e22352653a3df897"
+    },
+    {
+      "path": "armylists/adeptus-titanicus.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/adeptus-titanicus/armylist.html",
+      "bytes": 1204,
+      "sha256": "e8ed75c10a1070e0b8ce7a3c698d08cac563fdd505fc8af5563e302f1162d034"
+    },
+    {
+      "path": "factions/grey-knights.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/grey-knights/",
+      "bytes": 625839,
+      "sha256": "4fdc61051e3592aee458214a00bc3f2d9d6db6b5f9fbb90c14cf1671fc298679"
+    },
+    {
+      "path": "factions/astra-militarum.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/astra-militarum/",
+      "bytes": 1015314,
+      "sha256": "265e7a4d43799dbb1d41a5f9225adf569773af95537445544eb4ed6089893e25"
+    },
+    {
+      "path": "armylists/grey-knights.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/grey-knights/armylist.html",
+      "bytes": 7753,
+      "sha256": "1a1a9a10f3711b7faa891a76ec99805948774e0bf845155bbf1170a6ca01698b"
+    },
+    {
+      "path": "armylists/astra-militarum.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/astra-militarum/armylist.html",
+      "bytes": 34987,
+      "sha256": "2c17de0ee8018d3460689fdc35583624dcbd156e25e5674d1c2fa9839f5ec8c2"
+    },
+    {
+      "path": "factions/imperial-agents.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/imperial-agents/",
+      "bytes": 694542,
+      "sha256": "f39a1a3dc9cb049456357c3550296dd2fd65213bfdf4b6571d488c338d7ac6f0"
+    },
+    {
+      "path": "armylists/imperial-agents.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/imperial-agents/armylist.html",
+      "bytes": 11872,
+      "sha256": "760d712b4be65a77cf8724e17846347c1a4f4a63a81b897882e4a6db547c0a9d"
+    },
+    {
+      "path": "factions/imperial-knights.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/imperial-knights/",
+      "bytes": 556869,
+      "sha256": "76c98a537879bda9c29d239678db239f01606dd15249a676b9280f68ff4c728a"
+    },
+    {
+      "path": "armylists/imperial-knights.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/imperial-knights/armylist.html",
+      "bytes": 7947,
+      "sha256": "c43794a7b04bac248c9dbfb75e0a294963fceeba2cb8302245d3b37697469bf3"
+    },
+    {
+      "path": "factions/chaos-daemons.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/chaos-daemons/",
+      "bytes": 1025392,
+      "sha256": "1e0125cdc552f5123a71de60716b0d6a0f282ea793335ab17946888fc689d534"
+    },
+    {
+      "path": "factions/chaos-knights.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/chaos-knights/",
+      "bytes": 569080,
+      "sha256": "c0430bcd3e87e255fa3382c85470a0fffedb937d60c32016b9ba33629f11702b"
+    },
+    {
+      "path": "factions/space-marines.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/space-marines/",
+      "bytes": 3013849,
+      "sha256": "c884369fde7e1ffeed0e527c77d843f1b7d684722306d073ccdad9e435085126"
+    },
+    {
+      "path": "armylists/chaos-daemons.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/chaos-daemons/armylist.html",
+      "bytes": 26719,
+      "sha256": "97688e98765ac9a769603a851b562c427f5ea3612b52a5e2d7517fcea72b9cdc"
+    },
+    {
+      "path": "armylists/chaos-knights.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/chaos-knights/armylist.html",
+      "bytes": 11631,
+      "sha256": "39bd8f604ecdc2627f20c48b759d411d7c566b71d36ba68847e068e2f819f025"
+    },
+    {
+      "path": "factions/death-guard.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/death-guard/",
+      "bytes": 727517,
+      "sha256": "87c1468e64685d1ad94c9a7c55dac97230794a03eb7859c3e57a171d8b34b761"
+    },
+    {
+      "path": "factions/chaos-space-marines.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/chaos-space-marines/",
+      "bytes": 1185484,
+      "sha256": "b8a346ad25412b74dfed1714aaeee32146537df5162784d41d4abd50a9e31d6e"
+    },
+    {
+      "path": "armylists/space-marines.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/space-marines/armylist.html",
+      "bytes": 83213,
+      "sha256": "a1e1a4a1321cfdd8a28239d74ff1ae7904af2b3f5c58714988da26510f538631"
+    },
+    {
+      "path": "armylists/death-guard.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/death-guard/armylist.html",
+      "bytes": 19873,
+      "sha256": "e5923a549a55ae5aa6bd850817371c71fd03e566d4cfac0690ce61bd6856be0a"
+    },
+    {
+      "path": "armylists/chaos-space-marines.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/chaos-space-marines/armylist.html",
+      "bytes": 30849,
+      "sha256": "82c8911df29fded8453c1349d7bea8f8c530e22f4479aa2b9519502a3495a809"
+    },
+    {
+      "path": "factions/emperor-s-children.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/emperor-s-children/",
+      "bytes": 727605,
+      "sha256": "1e00b45a311cdd8707085802ee29572611b8e518a5e537f7fa74e16bcb379fb1"
+    },
+    {
+      "path": "armylists/emperor-s-children.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/emperor-s-children/armylist.html",
+      "bytes": 5887,
+      "sha256": "5c2b1ea432b5105b3d872accd89a4959f606fb6dec9fd785782cc4549a435f1e"
+    },
+    {
+      "path": "factions/thousand-sons.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/thousand-sons/",
+      "bytes": 852621,
+      "sha256": "9a7caca6c1e87bd1f7a4bc5fa71299ead66261e65b87eb859a49743b7dd8e93d"
+    },
+    {
+      "path": "factions/world-eaters.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/world-eaters/",
+      "bytes": 757029,
+      "sha256": "7d2983d7768ee8faafe4ad232033bd97712c5c4873c057a33ef4a0fbeb56d83b"
+    },
+    {
+      "path": "armylists/thousand-sons.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/thousand-sons/armylist.html",
+      "bytes": 16664,
+      "sha256": "48692e1b777aefe39861dd4955d570773b21660437ba85b1c3f0079284ebc1b9"
+    },
+    {
+      "path": "armylists/world-eaters.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/world-eaters/armylist.html",
+      "bytes": 16489,
+      "sha256": "2a6ed0060c82ad9fe538bb2d08f2583a73a601491f0abd0c82f4aa8772b0e143"
+    },
+    {
+      "path": "factions/aeldari.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/aeldari/",
+      "bytes": 1064671,
+      "sha256": "f235a6aefabdc8cd3564eda68debb9659625030c5a01a9c37bfa511da1d2f8f0"
+    },
+    {
+      "path": "armylists/aeldari.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/aeldari/armylist.html",
+      "bytes": 21588,
+      "sha256": "b698c6d5b6bef7c88ec30d05c40e284c8752b80231f38d18304654ae93f21aa5"
+    },
+    {
+      "path": "factions/drukhari.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/drukhari/",
+      "bytes": 807254,
+      "sha256": "3530063ddca97b61a16aaf73a98a0390ae4ac1113309f024c3399504eeb51454"
+    },
+    {
+      "path": "factions/genestealer-cults.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/genestealer-cults/",
+      "bytes": 1061624,
+      "sha256": "0b6b33948c3aa818976fbd849d0a3b4edac1faa9e40d72cd2eb30de6e391e1c9"
+    },
+    {
+      "path": "armylists/drukhari.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/drukhari/armylist.html",
+      "bytes": 11886,
+      "sha256": "9201679ed02f162eb8daab538b87f381e481a1fc9930c37e7ad9f4ebfd395a15"
+    },
+    {
+      "path": "armylists/genestealer-cults.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/genestealer-cults/armylist.html",
+      "bytes": 42295,
+      "sha256": "094311653cc3e9f1204b834268bedcb295af535716d4280aea25356b930819c3"
+    },
+    {
+      "path": "factions/leagues-of-votann.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/leagues-of-votann/",
+      "bytes": 587745,
+      "sha256": "47e86516688e66eeeeb1d7fbd17a057902b3edbc03aada9ba859f1bd5e2f25c0"
+    },
+    {
+      "path": "armylists/leagues-of-votann.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/leagues-of-votann/armylist.html",
+      "bytes": 5291,
+      "sha256": "c5a2a5c288f0a6bd84cc3c836ce7e5de5b70380fc9211b4f25609c2e5a6d3685"
+    },
+    {
+      "path": "factions/necrons.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/necrons/",
+      "bytes": 780505,
+      "sha256": "80dc0c7157d355d1adacdb02752af24240a93aecfe1131fc8f4d9c7d7b5fd62f"
+    },
+    {
+      "path": "factions/orks.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/orks/",
+      "bytes": 540943,
+      "sha256": "4d7d2c3c2b69c5dea05545c36cb761f488abc69a9509f9db3347884480514d31"
+    },
+    {
+      "path": "armylists/necrons.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/necrons/armylist.html",
+      "bytes": 15193,
+      "sha256": "dd777e185265d55f04f7d555cfdb739aa959e71ea90123e166a378c2c3601c38"
+    },
+    {
+      "path": "armylists/orks.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/orks/armylist.html",
+      "bytes": 14260,
+      "sha256": "99ceed747ce425f4d3f8d09ee9ea918ccc7d0437e9c662be53f234ec91be5056"
+    },
+    {
+      "path": "factions/t-au-empire.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/t-au-empire/",
+      "bytes": 670907,
+      "sha256": "231543596b9607b2404ccf7fc4e398e2cd4a893af57ef00a06a5190d9310c510"
+    },
+    {
+      "path": "armylists/t-au-empire.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/t-au-empire/armylist.html",
+      "bytes": 16150,
+      "sha256": "54a57eaa5b4a2d628b66826d3b1187653f57438c470dc1ea69cd5d87ae2417f0"
+    },
+    {
+      "path": "factions/tyranids.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/tyranids/",
+      "bytes": 760959,
+      "sha256": "d6f463dda52dd05b784f25b8a2e7ef32744d9eb5ad4f8d87d5655bb575729cde"
+    },
+    {
+      "path": "armylists/tyranids.html",
+      "url": "https://wahapedia.ru/wh40k11ed/factions/tyranids/armylist.html",
+      "bytes": 11070,
+      "sha256": "ef91431dbcd3ccf2d30acfb80a10994ccde3badf0cbfee7c48d7d56dcc046bc8"
+    }
+  ],
+  "archive": [
+    {
+      "id": "dakka",
+      "faction": "orks",
+      "name": "More Dakka!",
+      "short": "Dakka",
+      "color": "#7FBF3F",
+      "dp": 1,
+      "disp": "Disruption",
+      "perks": [
+        "Infanterie-Fernkampf mit [ASSAULT], bei Waaagh! [SUSTAINED HITS 1]",
+        "Ignoriert Deckung, +1 AP auf kurze Distanz",
+        "Schießt im Gegnerzug zurück"
+      ],
+      "rule": "Dakka! Dakka! Dakka!: Orks-Infanterie hat [ASSAULT] im Fernkampf; bei aktivem Waaagh! zusätzlich [SUSTAINED HITS 1] in deiner Shooting Phase."
+    }
+  ],
+  "phaseFallbacks": [
+    {
+      "id": "000009862007",
+      "when": "End of your opponent’s turn."
+    },
+    {
+      "id": "000009870007",
+      "when": "End of your opponent’s turn."
+    },
+    {
+      "id": "000009870004",
+      "when": "Start of your opponent’s Reinforcements step."
+    },
+    {
+      "id": "000008437006",
+      "when": "End of your opponent’s turn."
+    },
+    {
+      "id": "000010448002",
+      "when": "End of any of your phases."
+    }
+  ]
+}

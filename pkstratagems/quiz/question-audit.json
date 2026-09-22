@@ -1,0 +1,35 @@
+{
+  "total": 7204,
+  "topics": {
+    "core": 30,
+    "tactics": 36,
+    "stratagem": 3299,
+    "detachment": 409,
+    "faction": 59,
+    "datasheet": 3371
+  },
+  "difficulty": {
+    "easy": 2793,
+    "medium": 2563,
+    "hard": 1848
+  },
+  "tacticalLengthOutliers": [],
+  "unreviewedRulesExcluded": [
+    "SHOULDER THE MANTLE",
+    "DARING RIDERS",
+    "SCRAMBLE FIELD",
+    "IMPOSING ARRIVAL",
+    "EMPEROR’S WILL",
+    "SCRAMBLED COORDINATES",
+    "SCREAMING DESCENT",
+    "MOBILE VECTOR",
+    "HIDDEN AMONGST THE DEAD",
+    "A DARK NETWORK",
+    "MIRAGE OF ECHOES",
+    "HALLOWED BEACON",
+    "MATERIALISATION MATRICES",
+    "THROUGH THE VEIL",
+    "TWISTED MIRAGE"
+  ],
+  "generation": "Quellengebundene Regelvarianten und ausdrücklich vereinfachte Rechenmodelle; Taktikfragen redaktionell formuliert."
+}
