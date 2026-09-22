@@ -12,7 +12,7 @@ concurrency:
 jobs:
   release:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     env:
       PYTHONUNBUFFERED: '1'
     steps:
@@ -23,35 +23,22 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Prepare validated source and safe error diagnostics
+      - name: Assemble and preserve existing Doubles files byte-for-byte
         run: |
           python -m pip install beautifulsoup4==4.13.5 cryptography==46.0.1 playwright==1.55.0
           python pkstratagems/tools/assemble_v2.py
+          python pkstratagems/tools/preserve_doubles.py
           python pkstratagems/tests/catalog_v2.py
           node --test pkstratagems/tests/training.test.mjs > /tmp/pk-tests.log
           tail -8 /tmp/pk-tests.log
-          python - <<'PY'
-          from pathlib import Path
-          p=Path('pkstratagems/tools/release_v2.py');s=p.read_text()
-          old=" except urllib.error.HTTPError as e:raise RuntimeError('Netlify endpoint returned HTTP '+str(e.code)) from None"
-          new=""" except urllib.error.HTTPError as e:
-            body=e.read(4096).decode('utf-8','replace').strip()
-            category='proxy-unauthorized' if body=='Unauthorized' else ('api-json' if body.startswith('{') else 'other')
-            diagnostic={'status':e.code,'category':category,'method':method,'path':path,'bodyBytes':len(body),'requestId':e.headers.get('x-nf-request-id','')}
-            (ROOT/'qa/auth-diagnostic.json').write_text(json.dumps(diagnostic,indent=2))
-            print('Sanitized authorization diagnostic:',json.dumps(diagnostic),flush=True)
-            raise RuntimeError('Netlify endpoint returned HTTP '+str(e.code)+' ('+category+')') from None"""
-          assert old in s;s=s.replace(old,new)
-          old="result['previewDeploy']=deploy(PREVIEW,secret['previewProxy'])"
-          new="""# An allowed read separates credential rejection from upload-format errors.
-          probe=netlify_request(secret['previewProxy'],'/api/v1/deploys/6ab26f893b9a84bc8aed6e5f')
-          assert probe.get('site_id')==PREVIEW,'Unexpected preview identity; stop.'
-          print('Scoped preview authorization passed.',flush=True)
-          result['previewDeploy']=deploy(PREVIEW,secret['previewProxy'])"""
-          assert old in s;s=s.replace(old,new);p.write_text(s)
-          PY
           python -m playwright install --with-deps chromium
-      - name: Preserve complete tested build and source
+      - name: Verify the assembled application in a browser
+        run: |
+          python -m http.server 8765 --directory pkstratagems/netlify-site/public > /tmp/pk-http.log 2>&1 &
+          SERVER=$!
+          trap 'kill $SERVER' EXIT
+          python pkstratagems/tests/browser_v2.py --base http://127.0.0.1:8765/ --public
+      - name: Preserve tested build and source
         run: |
           mkdir -p deliverables
           cd pkstratagems/netlify-site
