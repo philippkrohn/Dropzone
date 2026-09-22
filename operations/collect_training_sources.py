@@ -16,7 +16,7 @@ def fetch(url,path):
  except Exception as e:reports.append({'url':url,'error':str(e)});return None
 nav=fetch(BASE+'/wh40k11ed/nav.html',OUT/'nav.html')
 assert nav is not None
-links={urljoin(BASE,a['href']):a.get_text(' ',strip=True) for a in nav.select('a[href]') if re.search(r'/wh40k11ed/factions/[^/]+/(?:$|\?)',a['href'])}
+links={urljoin(BASE,a['href']).rstrip('/')+'/':a.get_text(' ',strip=True) for a in nav.select('a[href]') if re.fullmatch(r'/wh40k11ed/factions/[^/]+/?',a['href'])}
 assert links, 'No discovered factions; no guessed catalogue.'
 print('Discovered factions',json.dumps(links),flush=True)
 def faction(item):
