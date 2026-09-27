@@ -2,7 +2,7 @@ name: Correct publish root and promote approved PK preview
 on:
   push:
     branches: ['fix/pk-preview-publication-2026-09-27']
-    paths: ['.github/workflows/promote-approved-preview.yml', 'operations/promote_preview.py']
+    paths: ['.github/workflows/promote-approved-preview.yml', 'operations/promote_preview.py', 'operations/prepare_with_existing_doubles.py']
 permissions:
   contents: read
 concurrency:
@@ -25,7 +25,7 @@ jobs:
       - name: Prepare approved static output, complete legacy assets and correct root config
         run: |
           python -m pip install beautifulsoup4==4.13.5 cryptography==46.0.1 playwright==1.55.0
-          python operations/promote_preview.py prepare
+          python operations/prepare_with_existing_doubles.py
           python pkstratagems/tests/catalog_v2.py
           node --test pkstratagems/tests/training.test.mjs > /tmp/pk-training-tests.log
           tail -8 /tmp/pk-training-tests.log
